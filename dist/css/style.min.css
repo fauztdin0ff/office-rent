@@ -1257,6 +1257,17 @@ Filters
     gap: 20px;
   }
 }
+.filters__send {
+  display: none;
+}
+@media (width < 767px) {
+  .filters__send {
+    display: block;
+  }
+  .filters__send .btn {
+    width: 100%;
+  }
+}
 .filters__form-area {
   position: relative;
   padding: 20px 24px;
