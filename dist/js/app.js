@@ -395,30 +395,51 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /*==========================================================================
-BC
+Swiper in product card  
 ============================================================================*/
-function updateBCText() {
-   const isMobile = window.innerWidth <= 767;
-   const bcElements = document.querySelectorAll('.bc');
+document.addEventListener('DOMContentLoaded', function () {
+   document.querySelectorAll('.card-preview__slider').forEach(function (slider) {
+      const swiperInstance = new Swiper(slider, {
+         loop: true,
+         nested: true,
+         pagination: {
+            el: slider.closest('.card-preview__image').querySelector('.card-preview__pagination'),
+            clickable: true,
+            type: 'bullets',
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+            renderBullet: function (index, className) {
+               return `<span class="${className}"></span>`;
+            },
+         },
+      });
 
-   bcElements.forEach(element => {
-      const fullText = 'Бизнес-центра';
-      const shortText = 'БЦ';
+      if (window.innerWidth > 1024) {
+         let lastMouseX = null;
+         let threshold = 20;
+         slider.addEventListener('mousemove', function (event) {
+            if (lastMouseX !== null) {
+               let deltaX = event.clientX - lastMouseX;
+               if (Math.abs(deltaX) > threshold) {
+                  if (deltaX > 0) {
+                     swiperInstance.slideNext();
+                  } else {
+                     swiperInstance.slidePrev();
+                  }
+                  lastMouseX = event.clientX;
+               }
+            } else {
+               lastMouseX = event.clientX;
+            }
+         });
 
-      if (isMobile) {
-         if (element.textContent.trim() === fullText) {
-            element.textContent = shortText;
-         }
-      } else {
-         if (element.textContent.trim() === shortText) {
-            element.textContent = fullText;
-         }
+         slider.addEventListener('mouseleave', function () {
+            lastMouseX = null;
+         });
       }
    });
-}
+});
 
-document.addEventListener('DOMContentLoaded', updateBCText);
-window.addEventListener('resize', updateBCText);
 
 
 /*==========================================================================
@@ -439,6 +460,103 @@ if (reviewsSlider) {
    });
 }
 
+
+/*==========================================================================
+Best slider
+============================================================================*/
+document.addEventListener("DOMContentLoaded", function () {
+
+   function carouselEffect({ swiper, on, extendParams }) {
+      extendParams({
+         carouselEffect: {
+            opacityStep: 0.33,
+            scaleStep: 0.2,
+            sideSlides: 2
+         }
+      });
+
+      on("beforeInit", () => {
+         if (swiper.params.effect !== "carousel") return;
+         swiper.classNames.push(`${swiper.params.containerModifierClass}carousel`);
+         Object.assign(swiper.params, {
+            watchSlidesProgress: true,
+            centeredSlides: true
+         });
+         Object.assign(swiper.originalParams, {
+            watchSlidesProgress: true,
+            centeredSlides: true
+         });
+      });
+
+      on("progress", () => {
+         if (swiper.params.effect !== "carousel") return;
+
+         const { scaleStep, opacityStep, sideSlides } = swiper.params.carouselEffect;
+         const maxSide = Math.max(Math.min(sideSlides, 3), 1);
+         const l = { 1: 2, 2: 1, 3: 0.2 }[maxSide];
+         const o = { 1: 50, 2: 50, 3: 67 }[maxSide];
+         const r = swiper.slides.length;
+
+         for (let i = 0; i < r; i++) {
+            const slide = swiper.slides[i];
+            const progress = slide.progress;
+            const y = Math.abs(progress);
+
+            let u = 1;
+            if (y > 1) u = (y - 1) * 0.3 * l + 1;
+
+            const v = `${progress * u * o * (swiper.rtlTranslate ? -1 : 1)}%`;
+            const scale = 1 - y * scaleStep;
+            const zIndex = r - Math.abs(Math.round(progress));
+
+            slide.style.transform = `translateX(${v}) scale(${scale})`;
+            slide.style.zIndex = zIndex;
+            slide.style.opacity = y > maxSide + 1 ? 0 : 1;
+
+            slide.querySelectorAll(".swiper-carousel-animate-opacity").forEach(el => {
+               el.style.opacity = 1 - y * opacityStep;
+            });
+         }
+      });
+
+      on("resize", () => {
+         if (swiper.virtual && swiper.params.virtual?.enabled) {
+            requestAnimationFrame(() => {
+               if (!swiper.destroyed) {
+                  swiper.updateSlides();
+                  swiper.updateProgress();
+               }
+            });
+         }
+      });
+
+      on("setTransition", (_, duration) => {
+         if (swiper.params.effect !== "carousel") return;
+         swiper.slides.forEach(slide => {
+            slide.style.transitionDuration = `${duration}ms`;
+            slide.querySelectorAll(".swiper-carousel-animate-opacity").forEach(el => {
+               el.style.transitionDuration = `${duration}ms`;
+            });
+         });
+      });
+   }
+
+   const bestSlider = document.querySelector(".best__slider");
+   if (bestSlider) {
+      const bestSwiper = new Swiper(bestSlider, {
+         effect: "carousel",
+         grabCursor: true,
+         loop: true,
+         loopAdditionalSlides: 1,
+         slidesPerView: "auto",
+         autoplay: {
+            delay: 3000
+         },
+         modules: [carouselEffect]
+      });
+   }
+
+});
 })();
 
 /******/ })()
