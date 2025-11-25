@@ -202,7 +202,6 @@ Header
   background: #fff;
   position: relative;
   z-index: 99;
-  overflow: hidden;
 }
 .header__body {
   position: relative;
@@ -883,7 +882,6 @@ h2 {
 Hero
 ============================================================================*/
 .hero {
-  background: linear-gradient(180deg, rgba(248, 248, 255, 0) 0%, #f8f8ff 100%);
   padding-bottom: 200px;
   position: relative;
 }
@@ -950,14 +948,6 @@ Hero
   object-fit: cover;
 }
 
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: 500;
-  }
-}
 /*==========================================================================
 Advantages
 ============================================================================*/
@@ -1139,6 +1129,13 @@ Latest
   min-width: 40px;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(4px);
+}
+@media (width < 767px) {
+  .card-preview__class {
+    top: 12px;
+    left: 12px;
+    font-size: 13px;
+  }
 }
 .card-preview__slider {
   height: 100%;
@@ -1721,7 +1718,7 @@ Best
 @media (width < 767px) {
   .best__slide-detail {
     gap: 5px;
-    font-size: 12px;
+    font-size: 11px;
     padding: 4px 6px;
     text-align: left;
   }

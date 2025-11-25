@@ -315,31 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
    mq.addEventListener("change", handleMove);
 });
 
-/*==========================================================================
-Hero image 
-============================================================================*/
-document.addEventListener("DOMContentLoaded", () => {
-   const heroImg = document.querySelector(".hero__image img");
-
-   if (!heroImg) return;
-
-   const wrapper = heroImg.parentElement;
-   const maxRotate = 5;
-   const maxShadowShift = 12;
-
-   wrapper.addEventListener("mousemove", (e) => {
-      const rect = wrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const halfW = rect.width / 2;
-
-      const rotateY = ((x - halfW) / halfW) * maxRotate;
-      const shadowX = -rotateY / maxRotate * maxShadowShift;
-
-      heroImg.style.transform = `rotateY(${rotateY}deg) scale3d(1, 1, 1)`;
-      heroImg.style.filter = `drop-shadow(${shadowX}px 8px 12px rgba(77, 115, 252, 0.3))`;
-   });
-
-});
 
 /*==========================================================================
 Related slider
