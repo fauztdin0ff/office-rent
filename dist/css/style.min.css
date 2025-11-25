@@ -1028,7 +1028,7 @@ Hero
   inset: 0;
   background: #4d73fc;
   z-index: 1;
-  opacity: 0.4;
+  opacity: 0.2;
   pointer-events: none;
 }
 .hero__body {
