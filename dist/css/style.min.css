@@ -473,6 +473,10 @@ Menu
     z-index: 0;
     overflow: hidden;
     border-radius: 0;
+    box-shadow: none;
+  }
+  .menu .submenu li:last-child {
+    border-bottom: none;
   }
 }
 .menu .menu__item.open > .submenu {
