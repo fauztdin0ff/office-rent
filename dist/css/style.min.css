@@ -1019,6 +1019,18 @@ Hero
   padding-bottom: 200px;
   position: relative;
 }
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  background: #4d73fc;
+  z-index: 1;
+  opacity: 0.4;
+  pointer-events: none;
+}
 .hero__body {
   display: flex;
   align-items: center;

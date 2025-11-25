@@ -552,9 +552,9 @@ document.addEventListener("DOMContentLoaded", function () {
          loop: true,
          loopAdditionalSlides: 1,
          slidesPerView: "auto",
-         /*  autoplay: {
-             delay: 3000
-          }, */
+         autoplay: {
+            delay: 3000
+         },
          modules: [carouselEffect]
       });
    }
