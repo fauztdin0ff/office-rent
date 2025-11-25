@@ -227,6 +227,34 @@ _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.burgerMenu();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.popups();
 /* flsFunctions.phoneMask(); */
 
+/*==========================================================================
+Submenu
+============================================================================*/
+document.addEventListener("DOMContentLoaded", () => {
+   const items = document.querySelectorAll(".menu__item--has-submenu");
+
+   items.forEach((item) => {
+      const toggle = item.querySelector(".submenu-toggle");
+
+      toggle.addEventListener("click", (e) => {
+         e.preventDefault();
+         e.stopPropagation();
+
+         items.forEach((i) => {
+            if (i !== item) i.classList.remove("open");
+         });
+
+         item.classList.toggle("open");
+      });
+   });
+
+   document.addEventListener("click", (e) => {
+      if (!e.target.closest(".menu__item--has-submenu")) {
+         items.forEach((item) => item.classList.remove("open"));
+      }
+   });
+});
+
 
 /*==========================================================================
 Preloader
