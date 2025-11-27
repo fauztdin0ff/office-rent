@@ -560,6 +560,104 @@ document.addEventListener("DOMContentLoaded", function () {
    }
 
 });
+
+
+/*==========================================================================
+Sort
+============================================================================*/
+document.addEventListener("DOMContentLoaded", () => {
+   const sorts = document.querySelectorAll(".catalog__sort");
+
+   if (!sorts.length) return;
+
+   sorts.forEach((sort) => {
+      const btn = sort.querySelector(".catalog__sort-btn");
+      const params = sort.querySelector(".catalog__sort-params");
+
+      if (!btn || !params) return;
+
+      btn.addEventListener("click", (e) => {
+         e.stopPropagation();
+
+         // Закрываем все остальные
+         sorts.forEach((other) => {
+            if (other !== sort) {
+               other.querySelector(".catalog__sort-btn")?.classList.remove("active");
+               other.querySelector(".catalog__sort-params")?.classList.remove("show");
+            }
+         });
+
+         btn.classList.toggle("active");
+         params.classList.toggle("show");
+      });
+
+      params.addEventListener("click", (e) => {
+         if (e.target.closest("a")) {
+            btn.classList.remove("active");
+            params.classList.remove("show");
+         }
+      });
+   });
+
+   // Глобальное закрытие по клику вне
+   document.addEventListener("click", (e) => {
+      sorts.forEach((sort) => {
+         if (!sort.contains(e.target)) {
+            sort.querySelector(".catalog__sort-btn")?.classList.remove("active");
+            sort.querySelector(".catalog__sort-params")?.classList.remove("show");
+         }
+      });
+   });
+});
+
+
+/*==========================================================================
+Aside
+============================================================================*/
+document.addEventListener("DOMContentLoaded", () => {
+   const toggle = document.querySelector(".catalog__filter-toggle");
+   const aside = document.querySelector(".catalog__aside");
+   const close = document.querySelector(".aside__close");
+   const body = document.body;
+
+   if (!toggle || !aside) return;
+
+   function openFilter() {
+      toggle.classList.add("active");
+      aside.classList.add("show");
+      body.classList.add("filter-opened");
+   }
+
+   function closeFilter() {
+      toggle.classList.remove("active");
+      aside.classList.remove("show");
+      body.classList.remove("filter-opened");
+   }
+
+   toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (aside.classList.contains("show")) {
+         closeFilter();
+      } else {
+         openFilter();
+      }
+   });
+
+   if (close) {
+      close.addEventListener("click", () => {
+         closeFilter();
+      });
+   }
+
+   document.addEventListener("click", (e) => {
+      if (!aside.contains(e.target) && !toggle.contains(e.target)) {
+         closeFilter();
+      }
+   });
+
+});
+
 })();
 
 /******/ })()

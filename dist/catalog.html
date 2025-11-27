@@ -62,7 +62,7 @@
       </div>
    </div>
    <div class="wrapper">
-      <header class="header">
+      <header class="header absolute">
    <div class="header__body container">
       <div class="header__logo">
          <a href="index.html" aria-label="На главную">
@@ -142,148 +142,174 @@
 
          <section class="catalog">
             <div class="catalog__body container">
-               <aside class="catalog__aside">
-                  <div class="catalog__aside-body">
-                     <div class="filters__head">
-                        <div class="filters__tabs">
-                           <div class="filters__tab active" data-tab="1">
-                              <img src="img/icons/rent.png" width="26" height="26" alt="rent icon">
-                              Аренда
-                           </div>
-                           <div class="filters__tab" data-tab="2">
-                              <img src="img/icons/sell.png" width="26" height="26" alt="sell icon">
-                              Продажа
-                           </div>
+               <aside class="catalog__aside aside">
+                  <div class="catalog__aside-body aside__body">
+                     <div class="aside__head">
+                        <div class="aside__title">Фильтры</div>
+                        <div class="aside__title">Сортировать</div>
+                        <div class="aside__close">
+                           <img src="img/icons/x.svg" width="20" height="20" alt="close icon">
                         </div>
-                        <div class="filters__button">
-                           <button type="submit" class="btn">Найти</button>
+                        <div class="catalog__sort">
+                           <button class="catalog__sort-btn">Популярные
+                              <span class="catalog__sort-icon">
+                                 <img src="img/icons/chevron-right.svg" width="16" height="16" alt="chevron-right">
+                              </span>
+                           </button>
+
+                           <div class="catalog__sort-params">
+                              <ul>
+                                 <li><a href="">Популярные</a></li>
+                                 <li><a href="">Сначала дорогие</a></li>
+                                 <li><a href="">Сначала дешевые</a></li>
+                                 <li><a href="">Новые</a></li>
+                                 <li><a href="">По рейтингу</a></li>
+                              </ul>
+                           </div>
                         </div>
                      </div>
-                     <div class="filters__cards">
-                        <div class="filters__card show" data-tab="1">
-                           <div class="filters__content">
-                              <form class="filters__form">
-                                 <div class="filters__form-area">
-                                    <div class="filters__form-head">
-                                       <span class="filters__form-label">Адрес, метро или название <span
-                                             class="bc">Бизнес-центра</span></span>
-                                    </div>
-                                    <div class="filters__form-row">
-                                       <img src="img/icons/pin-map-fill.svg" width="24" height="24" alt="icon">
-                                       <input type="text" class="input" placeholder="">
-                                    </div>
-                                 </div>
-                                 <div class="filters__form-area">
-                                    <div class="filters__form-head">
-                                       <span class="filters__form-label">Арендная плата</span>
-                                       <div class="filters__form-subtabs">
-                                          <label class="filters__form-subtab">
-                                             <input type="radio" name="monthly" checked>
-                                             в месяц
-                                          </label>
-                                          <label class="filters__form-subtab">
-                                             <input type="radio" name="monthly">
-                                             м² в год
-                                          </label>
-                                       </div>
-                                    </div>
-                                    <div class="filters__form-subarea">
-                                       <div class="filters__form-subarea-col">
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">От</span>
-                                             <input type="number" class="input" placeholder="">
-                                          </div>
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">До</span>
-                                             <input type="number" class="input" placeholder="">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="filters__form-area">
-                                    <div class="filters__form-head">
-                                       <span class="filters__form-label">Площадь</span>
-                                    </div>
-                                    <div class="filters__form-subarea">
-                                       <div class="filters__form-subarea-col">
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">От</span>
-                                             <input type="number" class="input" placeholder="">
-                                          </div>
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">До</span>
-                                             <input type="number" class="input" placeholder="">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="filters__send">
-                                    <button class="btn" type="submit">Применить</button>
-                                 </div>
-                              </form>
+                     <div class="aside__filter">
+                        <div class="filters__head">
+                           <div class="filters__tabs">
+                              <div class="filters__tab active" data-tab="1">
+                                 <img src="img/icons/rent.png" width="26" height="26" alt="rent icon">
+                                 Аренда
+                              </div>
+                              <div class="filters__tab" data-tab="2">
+                                 <img src="img/icons/sell.png" width="26" height="26" alt="sell icon">
+                                 Продажа
+                              </div>
+                           </div>
+                           <div class="filters__button">
+                              <button type="submit" class="btn">Найти</button>
                            </div>
                         </div>
-                        <div class="filters__card" data-tab="2">
-                           <div class="filters__content">
-                              <form class="filters__form">
-                                 <div class="filters__form-area">
-                                    <div class="filters__form-head">
-                                       <span class="filters__form-label">Адрес, метро или название <span
-                                             class="bc">Бизнес-центра</span></span>
-                                    </div>
-                                    <div class="filters__form-row">
-                                       <img src="img/icons/pin-map-fill.svg" width="24" height="24" alt="icon">
-                                       <input type="text" class="input" placeholder="">
-                                    </div>
-                                 </div>
-                                 <div class="filters__form-area">
-                                    <div class="filters__form-head">
-                                       <span class="filters__form-label">Арендная плата</span>
-                                       <div class="filters__form-subtabs">
-                                          <label class="filters__form-subtab">
-                                             <input type="radio" name="monthly" checked>
-                                             в месяц
-                                          </label>
-                                          <label class="filters__form-subtab">
-                                             <input type="radio" name="monthly">
-                                             м² в год
-                                          </label>
+                        <div class="filters__cards">
+                           <div class="filters__card show" data-tab="1">
+                              <div class="filters__content">
+                                 <form class="filters__form">
+                                    <div class="filters__form-area">
+                                       <div class="filters__form-head">
+                                          <span class="filters__form-label">Адрес, метро или название </span>
+                                       </div>
+                                       <div class="filters__form-row">
+                                          <img src="img/icons/pin-map-fill.svg" width="24" height="24" alt="icon">
+                                          <input type="text" class="input" placeholder="">
                                        </div>
                                     </div>
-                                    <div class="filters__form-subarea">
-                                       <div class="filters__form-subarea-col">
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">От</span>
-                                             <input type="number" class="input" placeholder="">
-                                          </div>
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">До</span>
-                                             <input type="number" class="input" placeholder="">
+                                    <div class="filters__form-area">
+                                       <div class="filters__form-head">
+                                          <span class="filters__form-label">Арендная плата</span>
+                                          <div class="filters__form-subtabs">
+                                             <label class="filters__form-subtab">
+                                                <input type="radio" name="monthly" checked>
+                                                в месяц
+                                             </label>
+                                             <label class="filters__form-subtab">
+                                                <input type="radio" name="monthly">
+                                                м² в год
+                                             </label>
                                           </div>
                                        </div>
-                                    </div>
-                                 </div>
-                                 <div class="filters__form-area">
-                                    <div class="filters__form-head">
-                                       <span class="filters__form-label">Площадь</span>
-                                    </div>
-                                    <div class="filters__form-subarea">
-                                       <div class="filters__form-subarea-col">
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">От</span>
-                                             <input type="number" class="input" placeholder="">
-                                          </div>
-                                          <div class="filters__form-row">
-                                             <span class="filters__form-label">До</span>
-                                             <input type="number" class="input" placeholder="">
+                                       <div class="filters__form-subarea">
+                                          <div class="filters__form-subarea-col">
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">От</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">До</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div class="filters__send">
-                                    <button class="btn" type="submit">Применить</button>
-                                 </div>
-                              </form>
+                                    <div class="filters__form-area">
+                                       <div class="filters__form-head">
+                                          <span class="filters__form-label">Площадь</span>
+                                       </div>
+                                       <div class="filters__form-subarea">
+                                          <div class="filters__form-subarea-col">
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">От</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">До</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="filters__send">
+                                       <button class="btn" type="submit">Применить</button>
+                                       <button class="btn -blue" type="reset">Сбросить</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                           <div class="filters__card" data-tab="2">
+                              <div class="filters__content">
+                                 <form class="filters__form">
+                                    <div class="filters__form-area">
+                                       <div class="filters__form-head">
+                                          <span class="filters__form-label">Адрес, метро или название <span
+                                                class="bc">Бизнес-центра</span></span>
+                                       </div>
+                                       <div class="filters__form-row">
+                                          <img src="img/icons/pin-map-fill.svg" width="24" height="24" alt="icon">
+                                          <input type="text" class="input" placeholder="">
+                                       </div>
+                                    </div>
+                                    <div class="filters__form-area">
+                                       <div class="filters__form-head">
+                                          <span class="filters__form-label">Арендная плата</span>
+                                          <div class="filters__form-subtabs">
+                                             <label class="filters__form-subtab">
+                                                <input type="radio" name="monthly" checked>
+                                                в месяц
+                                             </label>
+                                             <label class="filters__form-subtab">
+                                                <input type="radio" name="monthly">
+                                                м² в год
+                                             </label>
+                                          </div>
+                                       </div>
+                                       <div class="filters__form-subarea">
+                                          <div class="filters__form-subarea-col">
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">От</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">До</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="filters__form-area">
+                                       <div class="filters__form-head">
+                                          <span class="filters__form-label">Площадь</span>
+                                       </div>
+                                       <div class="filters__form-subarea">
+                                          <div class="filters__form-subarea-col">
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">От</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                             <div class="filters__form-row">
+                                                <span class="filters__form-label">До</span>
+                                                <input type="number" class="input" placeholder="">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="filters__send">
+                                       <button class="btn" type="submit">Применить</button>
+                                    </div>
+                                 </form>
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -291,13 +317,38 @@
 
                </aside>
                <div class="catalog__content">
+                  <div class="catalog__controls">
+                     <div class="catalog__filter-toggle">
+                        <div class="catalog__filter-toggle-icon">
+                           <img src="img/icons/filter.svg" width="20" height="20" alt="filter icon">
+                        </div>
+                        <span>Фильтры</span>
+                     </div>
+                     <div class="catalog__sort">
+                        <button class="catalog__sort-btn">Популярные
+                           <span class="catalog__sort-icon">
+                              <img src="img/icons/chevron-right.svg" width="16" height="16" alt="chevron-right">
+                           </span>
+                        </button>
+
+                        <div class="catalog__sort-params">
+                           <ul>
+                              <li><a href="">Популярные</a></li>
+                              <li><a href="">Сначала дорогие</a></li>
+                              <li><a href="">Сначала дешевые</a></li>
+                              <li><a href="">Новые</a></li>
+                              <li><a href="">По рейтингу</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
                   <div class="catalog__cards">
                      <div class="catalog__card card-preview -big">
                         <div class="card-preview__image">
                            <div class="card-preview__slider swiper">
                               <div class="swiper-wrapper">
                                  <div class="card-preview__slide swiper-slide">
-                                    <img src="img/previews/1.jpg" width="360" height="200" alt="Бизнесс центр">
+                                    <img src="img/previews/4.jpeg" width="360" height="200" alt="Бизнесс центр">
                                  </div>
                                  <div class="card-preview__slide swiper-slide">
                                     <img src="img/previews/2.jpeg" width="360" height="200" alt="Бизнесс центр">
@@ -306,7 +357,7 @@
                                     <img src="img/previews/3.jpg" width="360" height="200" alt="Бизнесс центр">
                                  </div>
                                  <div class="card-preview__slide swiper-slide">
-                                    <img src="img/previews/4.jpeg" width="360" height="200" alt="Бизнесс центр">
+                                    <img src="img/previews/1.jpg" width="360" height="200" alt="Бизнесс центр">
                                  </div>
                               </div>
                            </div>
