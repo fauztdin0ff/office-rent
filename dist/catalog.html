@@ -76,8 +76,9 @@
                <li><a href="index.html" class="menu__link active">Главная</a></li>
                <li class="menu__item menu__item--has-submenu">
                   <a href="catalog.html" class="menu__link">Бизнес-центры</a>
-                  <button class="submenu-toggle" type="button" aria-label="Открыть подменю"></button>
-
+                  <button class="submenu-toggle" type="button" aria-label="Открыть подменю">
+                     <img src="img/icons/chevron-right.svg" width="14" height="14" alt="chevron-right">
+                  </button>
                   <ul class="submenu">
                      <li><a href="#" class="submenu__link">Ссылка 1</a></li>
                      <li><a href="#" class="submenu__link">Ссылка 2</a></li>
@@ -85,7 +86,6 @@
                   </ul>
                </li>
                <li><a href="" class="menu__link">Для собственников</a></li>
-               <li><a href="" class="menu__link">О нас</a></li>
                <li><a href="" class="menu__link">Контакты</a></li>
             </ul>
             <div class="menu__contacts">
@@ -108,18 +108,27 @@
             </div>
          </div>
       </div>
-      <div class="header__buttons">
-         <div class="header__button">
-            <button type="button" class="header__search open-popup" data-popup="search-popup" aria-label="Поиск">
-               <svg>
-                  <use xlink:href="#icon-search"></use>
-               </svg>
-            </button>
+      <div class="header__more">
+         <div class="header__tel">
+            <a href="tel:+74951234567">+7 495 123 45 67</a>
          </div>
-         <div class="header__auth">
-            <a href="login.html" class="header__auth-link">Войти</a>
-            /
-            <a href="registration.html" class="header__auth-link">Регистрация</a>
+         <div class="header__buttons">
+            <div class="header__callback">
+               <button type="button" class="open-popup btn -blue" data-popup="callback-popup">
+                  <img src="img/icons/telephone.svg" width="16" height="16" alt="tel icon">
+                  Заказать звонок
+               </button>
+            </div>
+            <div class="header__socials">
+               <a href="" class="header__social" aria-label="Перейти в whatsapp">
+                  <img src="img/icons/whatsapp.svg" width="20" height="20" alt="whatsapp icon">
+                  <span class="header__social-text">WhatsApp</span>
+               </a>
+               <a href="" class="header__social" aria-label="Перейти в telegram">
+                  <img src="img/icons/telegram.svg" width="20" height="20" alt="telegram icon">
+                  <span class="header__social-text">Telegram</span>
+               </a>
+            </div>
          </div>
       </div>
    </div>
@@ -417,7 +426,7 @@
                               <div class="card-preview__price"><span>Цена</span> от 82.000 ₽ <i>/ мес</i></div>
                               <div class="card-preview__btn">
                                  <a href="" class="btn">Перейти</a>
-                                 <a href="" class="btn -blue"><img src="img/icons/pdf-2.svg" width="24" height="24"
+                                 <a href="" class="btn -blue"><img src="img/icons/pdf.svg" width="24" height="24"
                                        alt="pdf"> Скачать
                                     pdf</a>
                               </div>
@@ -794,6 +803,9 @@
          d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
    </svg>
 </svg>
+   <button type="button" class="go-to-top">
+      <img src="img/icons/arrow-up-icon.svg" width="30" height="30" alt="arrow up">
+   </button>
    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
    <script src="js/app.js"></script>
 </body>

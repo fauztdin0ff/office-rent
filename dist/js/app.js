@@ -279,6 +279,26 @@ document.addEventListener("DOMContentLoaded", () => {
    });
 });
 
+/*==========================================================================
+Header fix
+============================================================================*/
+document.addEventListener("DOMContentLoaded", () => {
+   const header = document.querySelector("header");
+
+   if (!header) return;
+
+   const toggleHeader = () => {
+      if (window.scrollY > 40) {
+         header.classList.add("fx");
+      } else {
+         header.classList.remove("fx");
+      }
+   };
+
+   window.addEventListener("scroll", toggleHeader);
+   toggleHeader();
+});
+
 
 /*==========================================================================
 Observer Animation
@@ -314,7 +334,7 @@ Move buttons
 document.addEventListener("DOMContentLoaded", () => {
    const headerButtons = document.querySelector(".header__buttons");
    const menuBody = document.querySelector(".menu__body");
-   const headerBody = document.querySelector(".header__body");
+   const headerBody = document.querySelector(".header__more");
 
    if (!headerButtons || !menuBody || !headerBody) return;
 
@@ -608,6 +628,35 @@ document.addEventListener("DOMContentLoaded", () => {
          }
       });
    });
+});
+
+/*==========================================================================
+Scroll top
+============================================================================*/
+document.addEventListener("DOMContentLoaded", () => {
+   const goToTopBtn = document.querySelector(".go-to-top");
+   if (!goToTopBtn) return;
+
+   const toggleButtonVisibility = () => {
+      const triggerHeight = window.innerHeight;
+
+      if (window.scrollY > triggerHeight) {
+         goToTopBtn.classList.add("show");
+      } else {
+         goToTopBtn.classList.remove("show");
+      }
+   };
+
+   window.addEventListener("scroll", toggleButtonVisibility);
+
+   goToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+         top: 0,
+         behavior: "smooth",
+      });
+   });
+
+   toggleButtonVisibility();
 });
 
 

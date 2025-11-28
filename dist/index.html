@@ -76,8 +76,9 @@
                <li><a href="index.html" class="menu__link active">Главная</a></li>
                <li class="menu__item menu__item--has-submenu">
                   <a href="catalog.html" class="menu__link">Бизнес-центры</a>
-                  <button class="submenu-toggle" type="button" aria-label="Открыть подменю"></button>
-
+                  <button class="submenu-toggle" type="button" aria-label="Открыть подменю">
+                     <img src="img/icons/chevron-right.svg" width="14" height="14" alt="chevron-right">
+                  </button>
                   <ul class="submenu">
                      <li><a href="#" class="submenu__link">Ссылка 1</a></li>
                      <li><a href="#" class="submenu__link">Ссылка 2</a></li>
@@ -85,7 +86,6 @@
                   </ul>
                </li>
                <li><a href="" class="menu__link">Для собственников</a></li>
-               <li><a href="" class="menu__link">О нас</a></li>
                <li><a href="" class="menu__link">Контакты</a></li>
             </ul>
             <div class="menu__contacts">
@@ -108,18 +108,27 @@
             </div>
          </div>
       </div>
-      <div class="header__buttons">
-         <div class="header__button">
-            <button type="button" class="header__search open-popup" data-popup="search-popup" aria-label="Поиск">
-               <svg>
-                  <use xlink:href="#icon-search"></use>
-               </svg>
-            </button>
+      <div class="header__more">
+         <div class="header__tel">
+            <a href="tel:+74951234567">+7 495 123 45 67</a>
          </div>
-         <div class="header__auth">
-            <a href="login.html" class="header__auth-link">Войти</a>
-            /
-            <a href="registration.html" class="header__auth-link">Регистрация</a>
+         <div class="header__buttons">
+            <div class="header__callback">
+               <button type="button" class="open-popup btn -blue" data-popup="callback-popup">
+                  <img src="img/icons/telephone.svg" width="16" height="16" alt="tel icon">
+                  Заказать звонок
+               </button>
+            </div>
+            <div class="header__socials">
+               <a href="" class="header__social" aria-label="Перейти в whatsapp">
+                  <img src="img/icons/whatsapp.svg" width="20" height="20" alt="whatsapp icon">
+                  <span class="header__social-text">WhatsApp</span>
+               </a>
+               <a href="" class="header__social" aria-label="Перейти в telegram">
+                  <img src="img/icons/telegram.svg" width="20" height="20" alt="telegram icon">
+                  <span class="header__social-text">Telegram</span>
+               </a>
+            </div>
          </div>
       </div>
    </div>
