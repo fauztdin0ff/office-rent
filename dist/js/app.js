@@ -332,9 +332,9 @@ function init() {
 Move buttons
 ============================================================================*/
 document.addEventListener("DOMContentLoaded", () => {
-   const headerButtons = document.querySelector(".header__buttons");
+   const headerButtons = document.querySelector(".header__callback");
    const menuBody = document.querySelector(".menu__body");
-   const headerBody = document.querySelector(".header__more");
+   const headerBody = document.querySelector(".header__buttons");
 
    if (!headerButtons || !menuBody || !headerBody) return;
 

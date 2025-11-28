@@ -254,6 +254,11 @@ Header
     justify-content: space-between;
   }
 }
+@media (width < 767px) {
+  .header__body {
+    gap: 5px;
+  }
+}
 .header__logo {
   width: clamp(130px, 9.219vw, 200px);
   z-index: 99;
@@ -263,7 +268,7 @@ Header
 }
 @media (width < 767px) {
   .header__logo {
-    max-width: 100px;
+    max-width: 85px;
   }
 }
 .header__more {
@@ -275,6 +280,11 @@ Header
   .header__more {
     flex: 1;
     justify-content: flex-end;
+  }
+}
+@media (width < 767px) {
+  .header__more {
+    gap: 10px;
   }
 }
 .header__buttons {
@@ -315,14 +325,18 @@ Header
   width: 14px;
   height: 14px;
 }
+@media (width < 767px) {
+  .header__callback .btn.-blue {
+    background: #fc9c4d;
+  }
+}
 .header__socials {
   display: flex;
   gap: 4px;
 }
-@media (width < 1200px) {
+@media (width < 767px) {
   .header__socials {
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 5px;
   }
 }
 .header__social {
@@ -362,6 +376,16 @@ Header
     background: #4d73fc;
   }
 }
+@media (width < 767px) {
+  .header__social {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+  }
+  .header__social img {
+    padding: 7px;
+  }
+}
 .header__social-text {
   display: none;
 }
@@ -391,43 +415,44 @@ Menu
 @media (max-width: 1200px) {
   .menu__icon {
     display: block;
-    width: 21px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     position: relative;
     z-index: 5;
     cursor: pointer;
+    background: #4d73fc;
+    border-radius: 50%;
   }
   .menu__icon::before, .menu__icon::after, .menu__icon span {
-    height: 2px;
     position: absolute;
-    background-color: #16191a;
+    background-color: #fff;
     border-radius: 2px;
     transition: all 0.3s ease 0s;
-    width: 100%;
-    left: 0;
+    width: 16px;
+    height: 1.5px;
+    left: calc(50% - 8px);
     will-change: transform;
   }
   .menu__icon::before, .menu__icon::after {
     content: "";
   }
   .menu__icon::before {
-    top: 4px;
+    top: 10px;
   }
   .menu__icon::after {
-    bottom: 4px;
+    bottom: 10px;
   }
   .menu__icon span {
-    top: 11px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .menu__icon.active::before {
-    top: 11px;
+    top: 50%;
     transform: rotate(45deg);
-    background: #4d73fc;
   }
   .menu__icon.active::after {
-    top: 11px;
+    top: 50%;
     transform: rotate(-45deg);
-    background: #4d73fc;
   }
   .menu__icon.active span {
     display: none;
@@ -3357,6 +3382,9 @@ Catalog
   }
 }
 .card-preview.-big .card-preview__stock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 16px;
   border-radius: 5px;
   background: rgba(77, 115, 252, 0.1);
