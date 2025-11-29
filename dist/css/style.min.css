@@ -210,7 +210,7 @@ Header
 ============================================================================*/
 .header {
   background: #fff;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -227,6 +227,7 @@ Header
 }
 .header.absolute {
   background: transparent;
+  position: fixed;
 }
 .header.absolute.fx {
   background: #fff;
@@ -252,6 +253,7 @@ Header
 @media (width < 1200px) {
   .header__body {
     justify-content: space-between;
+    gap: 10px;
   }
 }
 @media (width < 767px) {
@@ -298,14 +300,10 @@ Header
     flex-direction: column-reverse;
     align-items: stretch;
   }
-  .header__buttons .btn.-blue {
-    background: #fc9c4d;
-    width: 100%;
-  }
 }
 .header__tel a {
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 20px;
   color: #4d73fc;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -315,19 +313,31 @@ Header
     color: #fc9c4d;
   }
 }
-.header__callback .btn.-blue {
+@media (width < 767px) {
+  .header__tel a {
+    font-size: 16px;
+  }
+}
+.header__callback .btn {
   border-radius: 100px;
   padding: 10px 20px;
   font-size: 13px;
   white-space: nowrap;
 }
-.header__callback .btn.-blue img {
+.header__callback .btn img {
   width: 14px;
   height: 14px;
+  transition: all 0.4s ease-in-out;
 }
-@media (width < 767px) {
-  .header__callback .btn.-blue {
+@media (hover: hover) {
+  .header__callback .btn:hover img {
+    filter: invert(1);
+  }
+}
+@media (width < 1200px) {
+  .header__callback .btn {
     background: #fc9c4d;
+    width: 100%;
   }
 }
 .header__socials {
@@ -350,6 +360,12 @@ Header
   background: #4d73fc;
   transition: all 0.3s ease;
 }
+.header__social:first-child {
+  background: #2cb742;
+}
+.header__social:last-child {
+  background: #0088cc;
+}
 .header__social img {
   width: 16px;
   height: 16px;
@@ -359,40 +375,11 @@ Header
     background: #fc9c4d;
   }
 }
-@media (width < 1200px) {
-  .header__social {
-    width: auto;
-    border-radius: 0;
-    background: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .header__social img {
-    width: 30px;
-    height: 30px;
-    padding: 8px;
-    border-radius: 50%;
-    background: #4d73fc;
-  }
-}
 @media (width < 767px) {
   .header__social {
     flex: 0 0 30px;
     width: 30px;
     height: 30px;
-  }
-  .header__social img {
-    padding: 7px;
-  }
-}
-.header__social-text {
-  display: none;
-}
-@media (width < 1200px) {
-  .header__social-text {
-    display: block;
-    color: #f8f8ff;
   }
 }
 
@@ -1165,7 +1152,6 @@ h2 {
 Hero
 ============================================================================*/
 .hero {
-  margin-top: 90px;
   padding-bottom: 200px;
   position: relative;
 }
@@ -1180,16 +1166,6 @@ Hero
   z-index: 1;
   opacity: 0.2;
   pointer-events: none;
-}
-@media (width < 1300px) {
-  .hero {
-    margin-top: 83px;
-  }
-}
-@media (width < 767px) {
-  .hero {
-    margin-top: 77px;
-  }
 }
 .hero__body {
   display: flex;
@@ -2912,7 +2888,7 @@ Catalog
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 9999;
     width: min(90%, 440px);
     height: 100%;
     background: #f8f8ff;
