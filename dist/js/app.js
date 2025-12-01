@@ -707,6 +707,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+
+/*------------------------------Увеличение---------------------------*/
+const sliderImgs = document.querySelectorAll('.business-center__slide .super-flow-image > img');
+
+if (sliderImgs.length > 0) {
+   const dynamicEl = Array.from(sliderImgs).map(img => ({
+      src: img.src,
+      thumb: img.src,
+      subHtml: ''
+   }));
+
+   const zoomBtn = document.querySelector('.business-center__zoom');
+
+   const gallery = lightGallery(zoomBtn, {
+      dynamic: true,
+      dynamicEl,
+      download: false,
+      mobileSettings: {
+         showCloseIcon: true
+      }
+   });
+
+   zoomBtn.addEventListener("click", () => {
+      gallery.openGallery(0);
+   });
+}
+
+
 })();
 
 /******/ })()
