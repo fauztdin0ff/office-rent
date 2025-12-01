@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*==========================================================================
 Start styles
 ============================================================================*/
@@ -230,6 +231,9 @@ Header
   position: fixed;
 }
 .header.absolute.fx {
+  background: #fff;
+}
+.header.white {
   background: #fff;
 }
 .header__body {
@@ -2781,10 +2785,13 @@ Catalog
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 10px;
+  color: #7a7f85;
 }
 @media (width < 767px) {
   .breadcrubms {
     gap: 4px;
+    margin-bottom: 0;
   }
 }
 .breadcrubms__link {
@@ -3545,4 +3552,77 @@ Catalog
   opacity: 1;
   visibility: visible;
   transform: translate3d(0, 0, 0) scaleY(1) translateZ(100px);
+}
+
+/*==========================================================================
+БЦ
+============================================================================*/
+.business-center {
+  height: calc(100vh - 95px);
+  position: relative;
+  min-height: 650px;
+  max-height: 1080px;
+}
+@media (width < 767px) {
+  .business-center {
+    height: 340px;
+    min-height: unset;
+    max-height: unset;
+  }
+}
+.business-center .page-head {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  left: 0;
+  padding: 0;
+  z-index: 99;
+}
+.business-center .page-head .breadcrubms {
+  color: #fff;
+}
+.business-center .page-head .breadcrubms img {
+  filter: invert(1);
+}
+.business-center .page-head .page-head__title {
+  color: #fff;
+  font-size: 80px;
+}
+@media (width < 980px) {
+  .business-center .page-head .page-head__title {
+    font-size: 60px;
+  }
+}
+@media (width < 767px) {
+  .business-center .page-head .page-head__title {
+    font-size: 40px;
+  }
+}
+.business-center__slider {
+  width: 100%;
+  height: 100%;
+}
+.business-center__slide {
+  position: relative;
+}
+.business-center__slide::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+.business-center__pagination {
+  z-index: 55;
+}
+@media (width < 767px) {
+  .business-center__pagination {
+    padding: 8px;
+  }
 }
