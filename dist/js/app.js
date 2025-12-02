@@ -225,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.burgerMenu();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.popups();
-/* flsFunctions.phoneMask(); */
+_modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.phoneMask();
 
 /*==========================================================================
 Submenu
@@ -735,6 +735,33 @@ if (sliderImgs.length > 0) {
    });
 }
 
+/*==========================================================================
+Hidden text
+============================================================================*/
+document.addEventListener('DOMContentLoaded', () => {
+   const hiddenText = document.querySelector('.hidden-text');
+   if (!hiddenText) return;
+
+   const wrapper = hiddenText.querySelector('.hidden-text__wrapper');
+   const toggleBtn = hiddenText.querySelector('.hidden-text__toggle button');
+   const collapsedHeight = 160;
+
+   wrapper.style.maxHeight = collapsedHeight + 'px';
+
+   toggleBtn.addEventListener('click', () => {
+      const isOpen = wrapper.classList.contains('open');
+
+      if (isOpen) {
+         wrapper.style.maxHeight = collapsedHeight + 'px';
+         wrapper.classList.remove('open');
+         toggleBtn.textContent = 'Показать больше';
+      } else {
+         wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+         wrapper.classList.add('open');
+         toggleBtn.textContent = 'Скрыть';
+      }
+   });
+});
 
 })();
 
