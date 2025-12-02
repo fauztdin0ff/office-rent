@@ -3921,6 +3921,9 @@ Descr
   .description__orients {
     flex-direction: column;
   }
+  .description__orients .description__orient-label {
+    font-size: 18px;
+  }
 }
 .description__orient {
   flex: 1;
@@ -3964,6 +3967,11 @@ Descr
 }
 .description__orient p span img {
   opacity: 0.8;
+}
+@media (width < 767px) {
+  .description__orient {
+    font-size: 14px;
+  }
 }
 .description__orient-label {
   font-size: clamp(16px, 1.094vw, 24px);
